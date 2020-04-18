@@ -11,7 +11,7 @@ from collections import Counter
 db_file = os.path.join(os.getcwd(), 'db', 'index.db')
 urls_file = os.path.join(os.getcwd(), 'db', 'urls.db')
 lengths_file = os.path.join(os.getcwd(), 'db', 'lengths.db')
-stopwords_file = os.path.join(os.getcwd(), 'vietnamese-stopwords-dash.txt')
+stopwords_file = os.path.join(os.getcwd(), 'english-stopwords-dash.txt')
 
 with open(urls_file, mode='rb') as f:
     urls = pickle.load(f)

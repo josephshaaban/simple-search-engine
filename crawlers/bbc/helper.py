@@ -9,18 +9,17 @@ def extract_text_from_url(url):
 
     soup = BeautifulSoup(res.text, 'html.parser')
 
-    h1 = soup.find('h1', class_='title_news_detail mb10')
-    h2 = soup.find('h2', class_='description')
+    h1 = soup.find('h1')
+    h2 = soup.find('h3')
     if (h1 is None) or (h2 is None):
         return ''
 
-    chunks = []
+    chunks = list()
     chunks.append(h1.get_text().strip())
     chunks.append(h2.get_text().strip())
 
-    main_content = soup.find_all('p', class_='Normal')
+    main_content = soup.find_all('p')
     for p in main_content[:2]:
         if p.find('a') is None:
             chunks.append(p.get_text().strip())
-
     return '\n'.join(chunks)
